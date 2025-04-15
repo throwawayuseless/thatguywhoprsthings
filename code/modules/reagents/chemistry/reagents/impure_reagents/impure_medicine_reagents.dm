@@ -192,14 +192,14 @@ Basically, we fill the time between now and 2s from now with hands based off the
 
 /datum/reagent/peptides_failed/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	if(affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25 * seconds_per_tick, 170))
+	if(affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.5 * seconds_per_tick, 170))
 		. = UPDATE_MOB_HEALTH
-	affected_mob.adjust_nutrition(-5 * REAGENTS_METABOLISM * seconds_per_tick)
+	affected_mob.adjust_nutrition(-10 * REAGENTS_METABOLISM * seconds_per_tick)
 
 //Lenturi
 //inverse
 /datum/reagent/inverse/lentslurri //Okay maybe I should outsource names for these
-	name = "Lentslurri"//This is a really bad name please replace
+	name = "Lentorpor"
 	description = "A highly addictive muscle relaxant that is made when Lenturi reactions go wrong, this will cause the patient to move slowly."
 	addiction_types = list(/datum/addiction/medicine = 8)
 	tox_damage = 0
@@ -409,7 +409,7 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	time_until_next_poison -= seconds_per_tick * (1 SECONDS)
 	if (time_until_next_poison <= 0)
 		time_until_next_poison = poison_interval
-		if(affected_mob.adjustToxLoss(creation_purity * 1, updating_health = FALSE, required_biotype = affected_biotype))
+		if(affected_mob.adjustToxLoss(1 - creation_purity, updating_health = FALSE, required_biotype = affected_biotype))
 			return UPDATE_MOB_HEALTH
 
 //Kind of a healing effect, Presumably you're using syrinver to purge so this helps that
