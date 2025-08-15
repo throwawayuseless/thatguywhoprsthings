@@ -2,7 +2,7 @@
 //When awakened, He thirsts for blood and begins ticking a "bloodthirst" counter.
 //The wielder of Her Grace is immune to stuns and gradually heals.
 //If the wielder fails to feed Her Grace in time, He will devour them and become incredibly aggressive.
-//Leaving Her Grace alone for some time will reset Her thirst and put Him to sleep.
+//Leaving Her Grace alone for some time will reset Her thirst and put Her to sleep.
 //Using Her Grace effectively requires extreme speed and care.
 /obj/item/her_grace
 	name = "artistic toolbox"
@@ -88,7 +88,7 @@
 	else
 		. += span_her_grace("[src] is latched closed.")
 
-/obj/item/her_grace/relaymove(mob/living/user, direction) //Allows changelings, etc. to climb out of Him after they revive, provided He isn't active
+/obj/item/her_grace/relaymove(mob/living/user, direction) //Allows changelings, etc. to climb out of Her after they revive, provided She isn't active
 	if(!awakened)
 		user.forceMove(get_turf(src))
 		user.visible_message(span_warning("[user] scrambles out of [src]!"), span_notice("You climb out of [src]!"))
