@@ -1,5 +1,5 @@
 //Her Grace is a very special weapon granted only to traitor chaplains.
-//When awakened, He thirsts for blood and begins ticking a "bloodthirst" counter.
+//When awakened, She thirsts for blood and begins ticking a "bloodthirst" counter.
 //The wielder of Her Grace is immune to stuns and gradually heals.
 //If the wielder fails to feed Her Grace in time, He will devour them and become incredibly aggressive.
 //Leaving Her Grace alone for some time will reset Her thirst and put Her to sleep.
@@ -116,7 +116,7 @@
 			else
 				master.apply_status_effect(/datum/status_effect/her_grace)
 		return
-	forceMove(get_turf(src)) //no you can't puter Grace in a locker you just have to deal with Him
+	forceMove(get_turf(src)) //no you can't put Grace in a locker you just have to deal with Her
 	if(bloodthirst < HER_GRACE_CONSUME_OWNER)
 		return
 	if(bloodthirst >= HER_GRACE_FALL_ASLEEP)
@@ -140,11 +140,11 @@
 		else
 			consume(L)
 
-/obj/item/her_grace/proc/awaken(mob/user) //Good morning, Mr. Grace.
+/obj/item/her_grace/proc/awaken(mob/user) //Good morning, Ms. Grace.
 	if(awakened)
 		return
 	awakened = TRUE
-	user.visible_message(span_boldwarning("[src] begins to rattle. He thirsts."), span_her_grace("You flick [src]'s latch up. You hope this is a good idea."))
+	user.visible_message(span_boldwarning("[src] begins to rattle. She thirsts."), span_her_grace("You flick [src]'s latch up. You hope this is a good idea."))
 	name = "Her Grace"
 	desc = "A bloodthirsty artifact created by a profane rite."
 	gender = FEMALE
@@ -167,7 +167,7 @@
 
 	spasm_animation()
 
-/obj/item/her_grace/proc/drowse() //Good night, Mrs. Grace.
+/obj/item/her_grace/proc/drowse() //Good night, Ms. Grace.
 	if(!awakened || ascended)
 		return
 	var/turf/T = get_turf(src)
@@ -183,7 +183,7 @@
 	bloodthirst = 0
 	update_appearance()
 
-/obj/item/her_grace/proc/consume(mob/living/meal) //Here's your dinner, Mr. Grace.
+/obj/item/her_grace/proc/consume(mob/living/meal) //Here's your dinner, Ms. Grace.
 	if(!meal)
 		return
 	var/victims = 0
